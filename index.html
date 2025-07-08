@@ -14,34 +14,28 @@
     }
   </style>
 </head>
-<body class="text-gray-900 flex flex-col min-h-screen">
-
-  <!-- Donation Section -->
-  <section class="flex-1 flex flex-col items-center justify-center text-center px-6 py-12 backdrop-blur-sm bg-white/70 rounded-xl shadow-lg m-4">
-    <h1 class="text-base md:text-lg font-bold mb-8 leading-relaxed">
-      Your simple click - is my big dream! ❤️ <br><br>
-      Help me reach my goal and change the life of my family! <br><br>
-      Donate <strong>1$ or more</strong> now and see the current total raised 🙏
+<body class="flex items-center justify-center min-h-screen">
+  <div class="bg-white/70 backdrop-blur-md rounded-xl shadow-lg p-10 text-center max-w-xl mx-auto">
+    <h1 class="text-xl md:text-2xl font-bold mb-6">
+      Your simple click - is my big dream! ❤️
     </h1>
-
-    <!-- QR Code Image -->
-    <img src="IMG_0075.jpeg" alt="USDT QR Code" class="w-64 h-auto rounded-lg shadow-lg mb-6">
-
-    <!-- Donation Button -->
-    <button onclick="fetchBalance()" class="inline-block px-8 py-4 text-white bg-black rounded-full text-lg hover:bg-gray-800 transition">
+    <p class="mb-6 font-medium">
+      Help me reach my goal and change the life of my family!
+    </p>
+    <p class="mb-6 font-semibold">
+      Donate 1$ or more now and see the current total raised 🙏
+    </p>
+    <img src="IMG_0075.jpeg" alt="USDT QR Code" class="mx-auto mb-6 rounded shadow-lg w-40">
+    <button onclick="checkBalance()" class="bg-gray-900 text-white px-8 py-4 rounded-full text-lg hover:bg-gray-800 transition">
       I Donated — Show Balance
     </button>
+    <p id="balanceResult" class="mt-4 text-gray-700">Checking balance... (Feature Coming Soon)</p>
+  </div>
 
-    <!-- Balance Display -->
-    <p id="balance" class="mt-6 text-xl font-semibold"></p>
-  </section>
-
-  <!-- JavaScript for Future Balance Connection -->
   <script>
-    async function fetchBalance() {
-      document.getElementById('balance').innerText = 'Checking balance... (Feature Coming Soon)';
+    function checkBalance() {
+      document.getElementById('balanceResult').innerText = "Checking balance... (Feature Coming Soon)";
     }
   </script>
-
 </body>
 </html>
