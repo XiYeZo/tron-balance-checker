@@ -3,51 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate USDT — My Big Dream</title>
+  <title>Donate USDT</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body::before {
-      content: '';
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+    .background {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      filter: blur(40px) brightness(0.85);
+      filter: blur(5px); /* slight blur */
       z-index: -1;
+    }
+    .content {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .qr-code {
+      max-width: 200px;
+      margin: 20px auto;
+    }
+    .button {
+      background-color: #16a34a;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .button:hover {
+      background-color: #15803d;
     }
   </style>
 </head>
-<body class="flex items-center justify-center min-h-screen">
-  <div class="bg-white/30 backdrop-blur-xl rounded-xl shadow-lg p-10 text-center max-w-xl mx-auto">
-    <h1 class="text-xl md:text-2xl font-bold mb-6">
-      Your simple click - is my big dream! ❤️
-    </h1>
-    <p class="mb-6 font-medium">
+<body>
+  <div class="background"></div>
+
+  <div class="content">
+    <h1 class="text-2xl font-bold">Your simple click - is my big dream! ❤️</h1>
+    <p class="mt-2">
       Help me reach my goal and change the life of my family!
     </p>
-    <p class="mb-6 font-semibold">
+    <p class="mt-2">
       Donate 1$ or more now and see the current total raised 🙏
     </p>
-    <img src="IMG_0075.jpeg" alt="USDT QR Code" class="mx-auto mb-6 rounded shadow-lg w-80">
-    <button onclick="checkBalance()" class="bg-gray-900 text-white px-8 py-4 rounded-full text-lg hover:bg-gray-800 transition">
-      I Donated — Show Balance
-    </button>
-    <p id="balanceResult" class="mt-4 text-gray-700"></p>
+    <img src="qrcode.png" alt="QR Code" class="qr-code">
+    <button class="button" onclick="checkBalance()">Show Current Balance</button>
+    <p id="balance" class="mt-4 text-lg"></p>
   </div>
 
-  <script>
-    async function checkBalance() {
-      document.getElementById('balanceResult').innerText = "Checking balance...";
-      try {
-        const response = await fetch('/api/balance');
-        const data = await response.json();
-        document.getElementById('balanceResult').innerText = `Current Balance: ${data.balance} TRX`;
-      } catch {
-        document.getElementById('balanceResult').innerText = "Error fetching balance.";
-      }
-    }
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
