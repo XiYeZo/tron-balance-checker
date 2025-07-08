@@ -3,6 +3,9 @@ async function checkBalance() {
   const apiKey = 'dc44014e-6887-4ba0-a7b7-8ecf6a6ac086';
   const usdtContract = 'TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj'; // USDT TRC20 Contract
 
+  const balanceElement = document.getElementById('balance');
+  balanceElement.innerText = 'Loading...';
+
   try {
     const response = await fetch(`https://api.trongrid.io/v1/accounts/${address}/tokens?limit=200`, {
       headers: { 'TRON-PRO-API-KEY': apiKey }
@@ -13,11 +16,11 @@ async function checkBalance() {
 
     if (usdtToken) {
       const balance = usdtToken.balance / 1e6; // USDT has 6 decimals
-      document.getElementById('balance').innerText = `Current Balance: ${balance} USDT`;
+      balanceElement.innerText = `Current Balance: ${balance} USDT`;
     } else {
-      document.getElementById('balance').innerText = 'USDT not found on this wallet.';
+      balanceElement.innerText = 'USDT not found on this wallet.';
     }
   } catch (error) {
-    document.getElementById('balance').innerText = 'Error fetching balance.';
+    balanceElement.innerText = 'Error fetching balance.';
   }
 }

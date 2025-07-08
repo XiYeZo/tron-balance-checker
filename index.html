@@ -11,7 +11,9 @@
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
+      overflow: hidden;
     }
+
     .background {
       position: fixed;
       top: 0;
@@ -21,9 +23,10 @@
       background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
-      filter: blur(5px); /* slight blur */
+      filter: blur(4px); /* slight blur */
       z-index: -1;
     }
+
     .content {
       position: relative;
       min-height: 100vh;
@@ -33,10 +36,12 @@
       align-items: center;
       padding: 20px;
     }
+
     .qr-code {
       max-width: 200px;
       margin: 20px auto;
     }
+
     .button {
       background-color: #16a34a;
       padding: 12px 24px;
@@ -46,6 +51,7 @@
       font-size: 16px;
       margin-top: 20px;
     }
+
     .button:hover {
       background-color: #15803d;
     }
