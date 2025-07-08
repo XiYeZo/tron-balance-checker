@@ -1,22 +1,18 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-// Serve static files (HTML, images, CSS, etc.)
+// Serve static files from current folder
 app.use(express.static(__dirname));
 
-// Route for homepage
+// Serve index.html from current folder
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// API Route for /balance
-app.get('/balance', (req, res) => {
-  res.json({ totalUSDT: 0 });
-});
+// Your backend routes here (for balance later)
 
-// Start server
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
