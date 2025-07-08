@@ -6,16 +6,21 @@
   <title>Donate USDT — My Big Dream</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
       background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      filter: blur(20px);
+      z-index: -1;
     }
   </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
-  <div class="bg-white/30 backdrop-blur-2xl rounded-xl shadow-lg p-10 text-center max-w-xl mx-auto">
+  <div class="bg-white/40 backdrop-blur-xl rounded-xl shadow-lg p-10 text-center max-w-xl mx-auto">
     <h1 class="text-xl md:text-2xl font-bold mb-6">
       Your simple click - is my big dream! ❤️
     </h1>
@@ -25,7 +30,7 @@
     <p class="mb-6 font-semibold">
       Donate 1$ or more now and see the current total raised 🙏
     </p>
-    <img src="IMG_0075.jpeg" alt="USDT QR Code" class="mx-auto mb-6 rounded shadow-lg w-40">
+    <img src="IMG_0075.jpeg" alt="USDT QR Code" class="mx-auto mb-6 rounded shadow-lg w-60">
     <button onclick="checkBalance()" class="bg-gray-900 text-white px-8 py-4 rounded-full text-lg hover:bg-gray-800 transition">
       I Donated — Show Balance
     </button>
@@ -37,4 +42,12 @@
       document.getElementById('balanceResult').innerText = "Checking balance...";
       try {
         const response = await fetch('/api/balance');
-        co
+        const data = await response.json();
+        document.getElementById('balanceResult').innerText = `Current Balance: ${data.balance} TRX`;
+      } catch {
+        document.getElementById('balanceResult').innerText = "Error fetching balance.";
+      }
+    }
+  </script>
+</body>
+</html>
