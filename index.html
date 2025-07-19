@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: black; /* Text color is black */
+      color: black;
       text-align: center;
       overflow: hidden;
     }
@@ -38,23 +38,15 @@
     }
 
     .qr-code {
-      max-width: 400px; /* 2x bigger than before */
+      max-width: 400px;
       margin: 20px auto;
       border-radius: 12px;
     }
 
-    .button {
-      background-color: #16a34a;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-
-    .button:hover {
-      background-color: #15803d;
+    .wallet-address {
+      font-size: 0.9rem;
+      word-break: break-all;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -62,12 +54,9 @@
   <div class="background"></div>
 
   <div class="content">
-    <h1 class="text-2xl font-bold">donate 1$ and see how many done like you! ❤️</h1>
+    <h1 class="text-2xl font-bold">Donate amount any and change someone's life very! ❤️</h1>
     <img src="IMG_0075.jpeg" alt="QR Code" class="qr-code">
-    <button class="button" onclick="checkBalance()">Show Current Balance</button>
-    <p id="balance" class="mt-4 text-lg"></p>
+    <p class="wallet-address">TGz33mQsB6Bnyw86VLHMtbnAfNc9ooVCrs</p>
   </div>
-
-  <script src="index.js"></script>
 </body>
 </html>
